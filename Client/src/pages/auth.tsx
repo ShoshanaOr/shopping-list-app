@@ -49,7 +49,7 @@ const [password, setPassword] = React.useState('');
         password
       })
       const user = res.data
-      // console.log(user);
+       console.log(user);
       if(user){
         dispatch(setUser(user))
        navigate('/shoppingList', { state: { user } })
