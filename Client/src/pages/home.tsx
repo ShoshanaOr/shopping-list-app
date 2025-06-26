@@ -28,8 +28,7 @@ export default function Home() {
         הצטרפו עכשיו ותתחילו לחסוך זמן ומאמץ.
       </Typography>
 
-      <Stack
-        sx={{ pt: 4 }}
+      <Stack sx={{ pt: 4 }}
         direction="row"
         spacing={2}
         justifyContent="center"

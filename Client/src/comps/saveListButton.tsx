@@ -20,14 +20,15 @@ export default function SaveListButton({user}: Props) {
   const items = useSelector((state: RootState) => state.shoppingList.items)
   const dispatch = useDispatch<AppDispatch>()
 
-  const URL = 'http://localhost:3000/shopping-lists'
+  // const url = 'http://localhost:3000/shopping-lists'
+  const url = `${import.meta.env.VITE_API_URL}/shopping-lists`
 
   const handleSave = async () => {
     console.log(items);
     console.log(user._id);
     
     try{
-    const res = await axios.post(URL, {
+    const res = await axios.post(url, {
   userId: user._id,
   items
 })

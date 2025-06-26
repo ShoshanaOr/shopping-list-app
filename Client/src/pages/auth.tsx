@@ -1,18 +1,15 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import FilledInput from '@mui/material/FilledInput';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
-import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Container, Typography, Button, Stack } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../store';
 import { setUser, type UserState } from '../features/user/userSlice';
@@ -43,8 +40,10 @@ const [password, setPassword] = React.useState('');
   };
 
   const handleRegister = async() =>{
+    const url = `${import.meta.env.VITE_API_URL}/shopping-lists`
+    // const url = 'http://localhost:3000/user'
     try{
-      const res = await axios.post<UserState>('http://localhost:3000/user',{
+      const res = await axios.post<UserState>(url,{
         fullName,
         email,
         password
@@ -65,8 +64,10 @@ const [password, setPassword] = React.useState('');
   }
 
   const handleLogin = async () => {
+    // const url = 'http://localhost:3000/login'
+    const url = `${import.meta.env.VITE_API_URL}/login`
     try{
-      const res = await axios.post<UserState>('http://localhost:3000/login', {
+      const res = await axios.post<UserState>(url, {
          email,
         password
       })
@@ -142,15 +143,15 @@ const [password, setPassword] = React.useState('');
         justifyContent="center"
       >
         <Button
-          variant="contained"
-          color="primary"
-          onClick={isLoginMode ? handleLogin : handleRegister}          
+        variant="contained"
+        color="primary"
+        onClick={isLoginMode ? handleLogin : handleRegister}          
         >
           {isLoginMode ? 'התחבר' : 'הרשם'}
         </Button>
         <Button
-          variant="outlined"
-          onClick={() => setIsLoginMode((prev) => !prev)}
+        variant="outlined"
+         onClick={() => setIsLoginMode((prev) => !prev)}
         >
           {isLoginMode ? 'אין לך חשבון? הרשם כאן' : 'כבר רשום? התחבר כאן'}
         </Button>
