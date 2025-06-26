@@ -4,17 +4,22 @@ import type { AppDispatch, RootState } from '../store';
 import { addItem } from '../features/shoppingList/shoppingListSlice';
 import ShoppingListView from './shoppingListView';
 import SaveListButton from './saveListButton';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import { Box,Paper, Typography } from '@mui/material';
+import { useEffect } from 'react';
 
 export default function AppShoppingList() {
 
+  //למחוק לאחר בדיקה
+  useEffect(()=>  {console.log(user)},[])
   
   const dispatch = useDispatch<AppDispatch>()
   const items = useSelector((state: RootState) => state.shoppingList.items)
+
+  const user = useSelector((state: RootState) => state.user)
   
-  const location = useLocation()
-  const user = location.state?.user
+  // const location = useLocation()
+  // const user = location.state?.user
   const handleAddItem = (item : {product: string, category: string}) => {
     console.log(item);
     dispatch(addItem(item))
@@ -32,6 +37,8 @@ export default function AppShoppingList() {
         <Typography variant="h6" color="text.secondary">
           סה"כ: {items.length} מוצרים
         </Typography>
+       
+       
         {user && (
           <Typography variant="h6" color="primary">
             שלום {user.fullName}
