@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { seedCategories } from "../services/category.service";
 
-const MONGO_URI = process.env.MONGO_URI
+const MONGO_URI = process.env.MONGO_URI;
 
 if (!MONGO_URI) {
   throw new Error(' MONGO_URI is not defined in .env file');
