@@ -6,6 +6,7 @@ import { addItem } from '../features/shoppingList/shoppingListSlice';
 import ShoppingListView from './shoppingListView';
 import SaveListButton from './saveListButton';
 import { useLocation } from 'react-router-dom';
+import { Box, Divider, Paper, Typography } from '@mui/material';
 
 export default function AppShoppingList() {
 
@@ -21,19 +22,45 @@ export default function AppShoppingList() {
     dispatch(addItem(item))
   }
   return (
-    <div>
-      <h1>רשימת קניות</h1>
-      <h2>סה"כ: {items.length} מוצרים</h2>
-      {user && <h5>שלום {user.fullName}</h5>}
-      
-      <AddItem onAddItem={handleAddItem}/>
+   
+    <Box sx={{ px: 2, py: 4 }}>
+      <Typography variant="h3" align="center" gutterBottom>
+        רשימת קניות
+      </Typography>
+
+      <Box
+        sx={{display: 'flex',justifyContent: 'space-between',alignItems: 'center',   mb: 3,flexWrap: 'wrap' }}
+      >
+        <Typography variant="h6" color="text.secondary">
+          סה"כ: {items.length} מוצרים
+        </Typography>
+        {user && (
+          <Typography variant="h6" color="primary">
+            שלום {user.fullName}
+          </Typography>
+        )}
+      </Box>
+
+
+      <Paper elevation={2} sx={{ p: 2, mb: 3 }}>
+        <AddItem onAddItem={handleAddItem} />
+      </Paper>
+
       {items.length > 0 ? (
         <>
-      <ShoppingListView/> 
-      <SaveListButton user={user}/>
-    </>
-    ) : 
-      <p>הרשימה ריקה</p>}
-    </div>
+          <Box  sx={{ p: 2, mb: 2 }}>
+        <ShoppingListView />
+          </Box>
+
+          <Box textAlign="center" mt={2}>
+          <SaveListButton user={user} />
+          </Box>
+        </>
+      ) : (
+        <Typography variant="body1" align="center" color="text.secondary">
+          הרשימה ריקה
+        </Typography>
+      )}
+    </Box>
   )
 }

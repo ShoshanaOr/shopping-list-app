@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import type { AppDispatch, RootState } from '../store'
 import { clearList } from '../features/shoppingList/shoppingListSlice';
+import { Button } from '@mui/material';
 
  interface User {
   fullName: string;
@@ -41,7 +42,14 @@ export default function SaveListButton({user}: Props) {
 
   return (
     <div>
-    <button onClick={handleSave}>שמור</button>
+      <Button
+      variant="contained"
+      color="primary"
+      onClick={handleSave}
+      sx={{ m: 2 , mt:4}}
+    >
+      שמור רשימה
+    </Button>
     </div>
   )
 }

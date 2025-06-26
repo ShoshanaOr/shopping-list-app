@@ -87,8 +87,8 @@ const [password, setPassword] = React.useState('');
   }
 
   return (
-<Container>
-  <Typography variant="h5" align="center" gutterBottom>
+<Container  sx={{ pt: 6, pb: 6 ,mt: 7}}>
+  <Typography variant="h3" align="center" gutterBottom>
   {isLoginMode ? 'התחברות' : 'הרשמה'}
 </Typography>
     <Box

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import type { RootState } from '../store'
-import { Card, CardContent, Typography, Box } from '@mui/material';
+import { Card, CardContent, Typography, Box, Container } from '@mui/material';
 import axios from 'axios';
 
 interface Item {
@@ -41,31 +41,31 @@ export default function MyLists() {
   }, [user._id]);
 
   return (
-    <Box sx={{ p: 2 }}>
-      <p>{user.fullName}</p>
-      <Typography variant="h5" gutterBottom>
+    <Container maxWidth="md" sx={{ p: 2 , justifyContent: 'center',mt:10}}>
+      <Typography variant="h4">שלום {user.fullName}</Typography>
+      <Typography variant="h3" gutterBottom>
         רשימות הקניות שלי
       </Typography>
       {lists.length === 0 ? (
         <Typography>אין רשימות להצגה</Typography>
       ) : (
-        lists.map((list) => (
-          <Card key={list._id} sx={{ mb: 2 }}>
+      lists.map((list) => (
+      <Card key={list._id} sx={{ mb: 2 }}>
             <CardContent>
-              <Typography variant="h6">
+            <Typography variant="h6">
                 רשימה מתאריך: {new Date(list.createdAt).toLocaleString()}
-              </Typography>
+          </Typography>
               <ul>
-                {list.items.map((item, index) => (
-                  <li key={index}>
-                    {item.product} – {item.category} – כמות: {item.quantity}
-                  </li>
+              {list.items.map((item, index) => (
+              <li key={index}>
+              {item.product} – {item.category} – כמות: {item.quantity}
+              </li>
                 ))}
               </ul>
             </CardContent>
           </Card>
         ))
       )}
-    </Box>
+    </Container>
   )
 }

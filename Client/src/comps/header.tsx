@@ -1,18 +1,4 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
 
-// export default function Header() {
-//   return (
-//     <div>
-//       <header>
-//       <nav>
-//         <Link to="/">Home</Link>
-//         <Link to="/shoppingList">Shopping List</Link>
-//       </nav>
-//     </header>
-//     </div>
-//   )
-// }
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -145,12 +131,12 @@ function ResponsiveAppBar() {
           >
             SHOPPING LIST
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 'auto' }}>
             {pages.map((page) => (
               <Button
                 key={page.path}
                 onClick={() => handleNavigate(page.path)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', mx: 1.5,  }}
               >
                 {page.label}
               </Button>

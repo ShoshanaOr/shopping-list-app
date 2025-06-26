@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <Container disableGutters component="main" sx={{ pt: 6, pb: 6 }}>
+    <Container disableGutters component="main" sx={{ pt: 6, pb: 6 ,mt: 7, justifyContent: 'center',alignItems: 'center',textAlign: 'center',}}>
       <Typography
         component="h1"
         variant="h3"
@@ -13,7 +13,7 @@ export default function Home() {
         color="text.primary"
         gutterBottom
       >
-        ניהול קניות יומיומי – פשוט, קל ונוח!
+        ניהול קניות יומיומי פשוט קל ונוח 
       </Typography>
 
       <Typography
