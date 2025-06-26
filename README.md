@@ -1,6 +1,6 @@
 # 🛒 Shopping List App
 
-מערכת רספונסיבית לניהול רשימות קניות בזמן אמת – מבוססת משתמשים – נבנתה לצרכים אמיתיים של משתמשים.
+מערכת רספונסיבית לניהול רשימות קניות בזמן אמת – מבוססת משתמשים 
 
 ---
 
@@ -10,18 +10,6 @@
 
 🔐 לאחר התחברות – המשתמש מועבר ישירות למסך רשימת הקניות.  
 📁 כל רשימה נשמרת בשרת ומקושרת לחשבון המשתמש, כולל תאריך, שעה וכמות מהמוצרים.
-
----
-
-## 💻 טכנולוגיות עיקריות
-
-- **Frontend**: React + TypeScript  
-- **Backend**: Node.js + TypeScript  
-- **Database**: MongoDB  
-- **ORM**: Mongoose (Code-First)  
-- **State Management**: Redux Toolkit  
-- **UI**: Material-UI (MUI)  
-- **Responsiveness**: גרסה מותאמת לדסקטופ ולמובייל
 
 ---
 
@@ -70,7 +58,7 @@ npm install
 ```
 
 ### שלב 3: הגדרת מסד נתונים
-צור קובץ `.env` בתיקיית `server`:
+  קובץ `.env` בתיקיית `server`:
 ```env
 MONGODB_URI=mongodb://localhost:27017/shopping-list-app
 PORT=5000
@@ -78,14 +66,14 @@ PORT=5000
 
 ### שלב 4: הפעלה
 ```bash
-# טרמינל 1 - Backend
+Terminal-Backend:
 cd server
 npm run dev
 
-# טרמינל 2 - Frontend
+Terminal-Frontend:
 cd client  
 npm start
 ```
 
-**האפליקציה תהיה זמינה ב:** `http://localhost:3000`
+**האפליקציה תהיה זמינה ב:** `http://localhost:5173`
 
