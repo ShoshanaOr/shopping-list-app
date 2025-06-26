@@ -24,7 +24,7 @@ export default function AppShoppingList() {
     <div>
       <h1>רשימת קניות</h1>
       <h2>סה"כ: {items.length} מוצרים</h2>
-      {user && <h5>שלום ל {user.fullName}</h5>}
+      {user && <h5>שלום {user.fullName}</h5>}
       
       <AddItem onAddItem={handleAddItem}/>
       {items.length > 0 ? (

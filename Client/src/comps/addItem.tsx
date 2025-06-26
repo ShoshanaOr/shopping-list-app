@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { type AppDispatch, type RootState } from '../store';
 import { setCategories } from '../features/shoppingList/categoriesSlice';
 import axios from 'axios';
+import { Box, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 
 interface CategoryItem {
   _id: string
@@ -49,32 +50,55 @@ export default function AddItem({onAddItem}:AddItemProps) {
   }
 
   return (
+    <Box  sx={{p:4, maxWidth: 700, margin:'0 auto'}}>
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>שם מוצר</label>
+      <Grid container spacing={2} justifyContent={"center"}>
+       
+        {/* <label>שם מוצר</label>
         <input
         type='text'
         value={product}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setProduct(e.target.value)}
+        /> */}
+        
+        <TextField 
+        id="outlined-basic" 
+        label="שם מוצר" 
+        variant="outlined" 
+        value={product}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setProduct(e.target.value)}
         />
-      </div>
-      <div>
-        <label>קטגוריה</label>
-        <select 
-        value={category}
-        onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value)}
+
+        
+
+         <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">קטגוריה</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={category}
+          label="קטגוריה"
+          onChange={(e) => setCategory(e.target.value as string)}
+          // onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value)}
         >
-          <option value=''>בחר קטגוריה</option>
+          {/* <MenuItem value={""}>Ten</MenuItem> */}
+
           {categories?.map(cat => (
-            <option key={cat._id}
+            
+            <MenuItem key={cat._id}
             value={cat.name}
-            >{cat.name}</option>
+            >{cat.name}</MenuItem>
           )
           )}
-        </select>
-      </div>
+        </Select>
+      </FormControl>
+    </Box>
+      
       <button type='submit'>הוסף</button>
+      </Grid>
     </form>
+    </Box>
   )
 }
 

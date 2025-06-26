@@ -2,6 +2,7 @@
 import { useDispatch } from 'react-redux'
 import type { AppDispatch } from '../store'
 import {increaseQuantity, decreaseQuantity} from '../features/shoppingList/shoppingListSlice'
+import { Box } from '@mui/material'
 
 interface  QuantityControlProps {
   prodId: string
@@ -13,10 +14,10 @@ export default function QuantityControl({prodId, quantity}:QuantityControlProps)
   const dispatch = useDispatch<AppDispatch>()
 
   return (
-    <div>
-      <button onClick={() => dispatch(decreaseQuantity(prodId))}>➖</button>
+    <Box display="flex" alignItems="center" gap={1}>
+      <button onClick={() => dispatch(decreaseQuantity(prodId))}>-</button>
       <div>{quantity}</div>
-      <button onClick={() => dispatch(increaseQuantity(prodId))}>➕</button>
-    </div>
+      <button onClick={() => dispatch(increaseQuantity(prodId))}>+</button>
+    </Box>
   )
 }
