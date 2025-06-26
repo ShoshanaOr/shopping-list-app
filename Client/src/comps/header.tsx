@@ -12,21 +12,19 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-// const pages = ['Shopping List', 'Login/Register', 'My Lists'];
 const pages = [
   // { label: 'Home', path: '' },
   { label: 'רשימת הקניות', path: 'shoppingList' },
   { label: 'הרשמה / התחברות', path: 'auth' },
   { label: 'הרשימות שלי', path: 'myLists' },
 ];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -40,9 +38,7 @@ function ResponsiveAppBar() {
     handleCloseNavMenu()
     navigate(`/${page}`)
   }
-  // const handleCloseNavMenu33 = (page: string) => {
-  //   handleCloseNavMenu22(page)
-  // }
+
 
   return (
     // <div  style={{width: '100%'}}>

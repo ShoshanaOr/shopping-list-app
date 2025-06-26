@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { type AppDispatch, type RootState } from '../store'
 import QuantityControl from './quantityControl'
 import { removeItem } from '../features/shoppingList/shoppingListSlice'
-import { useEffect } from 'react'
-import * as React from 'react';
-import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
@@ -18,16 +15,6 @@ export default function ShoppingListView() {
   const categories = useSelector((state: RootState) => state.categories.categories)
   const dispatch = useDispatch<AppDispatch>()
 
-//   const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: '#fff',
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: 'center',
-//   color: (theme.vars ?? theme).palette.text.secondary,
-//   ...theme.applyStyles('dark', {
-//     backgroundColor: '#1A2027',
-//   }),
-// }));
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -51,7 +38,6 @@ const Item = styled(Paper)(({ theme }) => ({
         if (productsInCategory.length === 0) return null
         return (
     
-      // <Grid item xs={12} sm={6} md={4} key={category._id}>
      <Grid size={{ xs: 12, sm: 6, md: 4 }} key={category._id}>
    <Stack spacing={2}>
     <h3>{category.name}</h3>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { type AppDispatch, type RootState } from '../store';
+import { useDispatch} from 'react-redux';
+import { type AppDispatch } from '../store';
 import { setCategories } from '../features/shoppingList/categoriesSlice';
 import axios from 'axios';
 import { Box, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material';
@@ -56,12 +56,6 @@ export default function AddItem({onAddItem}:AddItemProps) {
     <form onSubmit={handleSubmit}>
       <Grid container spacing={2} justifyContent={"center"}>
        
-        {/* <label>שם מוצר</label>
-        <input
-        type='text'
-        value={product}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setProduct(e.target.value)}
-        /> */}
         
         <TextField 
         id="outlined-basic" 
