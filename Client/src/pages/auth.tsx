@@ -40,7 +40,7 @@ const [password, setPassword] = React.useState('');
   };
 
   const handleRegister = async() =>{
-    const url = `${import.meta.env.VITE_API_URL}/shopping-lists`
+    const url = `${import.meta.env.VITE_API_URL}/user`
     // const url = 'http://localhost:3000/user'
     try{
       const res = await axios.post<UserState>(url,{
@@ -49,7 +49,7 @@ const [password, setPassword] = React.useState('');
         password
       })
       const user = res.data
-      console.log(user);
+      // console.log(user);
       if(user){
         dispatch(setUser(user))
        navigate('/shoppingList', { state: { user } })
@@ -105,7 +105,8 @@ const [password, setPassword] = React.useState('');
       />
       )}
       <br/>
-      <TextField id="outlined-basic" label="אימייל" variant="outlined" 
+      {/* <TextField id="outlined-basic" label="אימייל" variant="outlined"  */}
+      <TextField id="outlined" label="אימייל" variant="outlined" 
       value={email}
       onChange={(e) =>setEmail(e.target.value)}
       />
