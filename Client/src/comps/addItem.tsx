@@ -23,7 +23,7 @@ export default function AddItem({onAddItem}:AddItemProps) {
     const url = `${import.meta.env.VITE_API_URL}/categories`
     axios.get<CategoryItem[]>(url)
       .then(res => {
-        console.log(res.data);       
+        // console.log(res.data);       
         dispatch(setCategories(res.data))         
         setCategoriesLocal(res.data)            
       })

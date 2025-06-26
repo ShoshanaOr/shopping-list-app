@@ -52,7 +52,7 @@ const [password, setPassword] = React.useState('');
        console.log(user);
       if(user){
         dispatch(setUser(user))
-       navigate('/shoppingList', { state: { user } })
+       //navigate('/shoppingList', { state: { user } })
       }else{
         alert('לא התקבל משתמש')
       }
@@ -76,7 +76,7 @@ const [password, setPassword] = React.useState('');
       
       if(user){
         dispatch(setUser(user))
-      // navigate('/shoppingList')
+       //navigate('/shoppingList')
       }else {
         alert('ההתחברות נכשלה – פרטי המשתמש אינם תקינים')
       }
