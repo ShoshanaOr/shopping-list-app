@@ -9,14 +9,14 @@ import { Box,Paper, Typography } from '@mui/material';
 import { useEffect } from 'react';
 
 export default function AppShoppingList() {
-
+  const user = useSelector((state: RootState) => state.user)
   //למחוק לאחר בדיקה
   useEffect(()=>  {console.log(user)},[])
   
   const dispatch = useDispatch<AppDispatch>()
   const items = useSelector((state: RootState) => state.shoppingList.items)
 
-  const user = useSelector((state: RootState) => state.user)
+  // const user = useSelector((state: RootState) => state.user)
   
   // const location = useLocation()
   // const user = location.state?.user
