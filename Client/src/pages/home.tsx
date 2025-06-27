@@ -43,7 +43,7 @@ export default function Home() {
         <Button
           variant="outlined"
           component={Link}
-          to="/auth"
+          to="/auth/true"
         >
           התחברות
         </Button>

@@ -39,7 +39,7 @@ export default function AppShoppingList() {
         </Typography>
        
        
-        {user && (
+        {user.fullName && (
           <Typography variant="h6" color="primary">
             שלום {user.fullName}
           </Typography>

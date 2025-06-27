@@ -11,6 +11,7 @@ export default function AppRoutes() {
       <Route path='/shoppingList' element={<AppShoppingList/>}>Shopping List</Route>
       <Route path='/auth' element={<Auth/>}></Route>
       <Route path='/myLists' element={<MyLists/>}></Route>
+      <Route path="/auth/:isLogin" element={<Auth />} />
     </Routes>
   )
 }

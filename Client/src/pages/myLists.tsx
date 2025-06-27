@@ -43,7 +43,9 @@ export default function MyLists() {
 
   return (
     <Container maxWidth="md" sx={{ p: 2 , justifyContent: 'center',mt:10}}>
+      {user.fullName && 
       <Typography variant="h4">שלום {user.fullName}</Typography>
+      }
       <Typography variant="h3" gutterBottom>
         רשימות הקניות שלי
       </Typography>

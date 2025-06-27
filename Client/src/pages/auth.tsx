@@ -8,12 +8,13 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Container, Typography, Button, Stack } from '@mui/material';
+import { Container, Typography, Button, Stack, Alert, AlertTitle } from '@mui/material';
 // import {  useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../store';
 import { setUser, type UserState } from '../features/user/userSlice';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 
 export default function Auth() {
@@ -25,9 +26,14 @@ export default function Auth() {
 const [email, setEmail] = React.useState('');
 const [password, setPassword] = React.useState('');
 
-  const [isLoginMode, setIsLoginMode] = React.useState(false);
+  const { isLogin } = useParams();
+  const [isLoginMode, setIsLoginMode] = React.useState(isLogin === 'true');
 
   const [showPassword, setShowPassword] = React.useState(false);
+  const [isAlertSuccess, setIsAlertSuccess] = React.useState(false)
+
+  const [isAlertError, setIsAlertError] = React.useState(false)
+  
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -38,6 +44,25 @@ const [password, setPassword] = React.useState('');
   const handleMouseUpPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
+
+  React.useEffect(() => {
+    if (isAlertError) {
+      const timer = setTimeout(() => {
+        setIsAlertError(false)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [isAlertError])
+
+  React.useEffect(() => {
+    if (isAlertSuccess) {
+      const timer = setTimeout(() => {
+        setIsAlertSuccess(false)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [isAlertSuccess])
+
 
   const handleRegister = async() =>{
     const url = `${import.meta.env.VITE_API_URL}/user`
@@ -52,6 +77,7 @@ const [password, setPassword] = React.useState('');
        console.log(user);
       if(user){
         dispatch(setUser(user))
+        setIsAlertSuccess(true)
        //navigate('/shoppingList', { state: { user } })
       }else{
         alert('לא התקבל משתמש')
@@ -76,14 +102,17 @@ const [password, setPassword] = React.useState('');
       
       if(user){
         dispatch(setUser(user))
+        setIsAlertSuccess(true)
        //navigate('/shoppingList')
       }else {
-        alert('ההתחברות נכשלה – פרטי המשתמש אינם תקינים')
+        // alert('ההתחברות נכשלה – פרטי המשתמש אינם תקינים')
+        setIsAlertError(true)
       }
       
     }catch  (err: any){
        console.error('Login error:', err);
-    alert('התחברות נכשלה: ' + (err.response?.data?.message || 'נסה שוב'));
+    // alert('התחברות נכשלה: ' + (err.response?.data?.message || 'נסה שוב'));
+    setIsAlertError(true)
     }
   }
 
@@ -157,6 +186,24 @@ const [password, setPassword] = React.useState('');
           {isLoginMode ? 'אין לך חשבון? הרשם כאן' : 'כבר רשום? התחבר כאן'}
         </Button>
       </Stack>
+
+      {isAlertError && 
+      <Stack sx={{ width: '100%' }} spacing={2}>
+      <Alert severity="error">
+        <AlertTitle>שגיאה</AlertTitle>
+        ההתחברות נכשלה נסה שנית
+      </Alert>
+    </Stack>
+      }
+      {
+        isAlertSuccess && 
+         <Stack sx={{ width: '100%' }} spacing={2}>
+          <Alert severity="success">
+        <AlertTitle>ברוך הבא</AlertTitle>
+        התחברת בהצלחה
+      </Alert>
+         </Stack>
+      }
         </Container>
   )
 }
