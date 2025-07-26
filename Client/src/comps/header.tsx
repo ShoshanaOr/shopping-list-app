@@ -19,6 +19,7 @@ const pages = [
   { label: 'רשימת הקניות', path: 'shoppingList' },
   { label: 'הרשמה / התחברות', path: 'auth' },
   { label: 'הרשימות שלי', path: 'myLists' },
+  { label: 'הרשימה החכמה', path: 'smartList' },
 ];
 
 function ResponsiveAppBar() {

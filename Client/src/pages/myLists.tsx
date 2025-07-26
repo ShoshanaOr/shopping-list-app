@@ -4,7 +4,7 @@ import type { RootState } from '../store'
 import { Card, CardContent, Typography, Container } from '@mui/material';
 import axios from 'axios';
 
-interface Item {
+export interface Item {
   product: string;
   category: string;
   quantity: number;
@@ -29,7 +29,7 @@ export default function MyLists() {
         const url = `${import.meta.env.VITE_API_URL}/shopping-lists/user/${user._id}`
         const res = await axios.get<ShoppingList[]>(url);
         setLists(res.data);
-        console.log(res.data);
+        // console.log(res.data);
         
       } catch (err) {
         console.error('Failed to fetch shopping lists:', err);

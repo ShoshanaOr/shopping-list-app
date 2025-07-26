@@ -3,6 +3,7 @@ import Home from './pages/home'
 import AppShoppingList from './comps/appShoppingList'
 import Auth from './pages/auth'
 import MyLists from './pages/myLists'
+import SmartList from './pages/smartList'
 
 export default function AppRoutes() {
   return (   
@@ -12,6 +13,7 @@ export default function AppRoutes() {
       <Route path='/auth' element={<Auth/>}></Route>
       <Route path='/myLists' element={<MyLists/>}></Route>
       <Route path="/auth/:isLogin" element={<Auth />} />
+      <Route path='smartList' element={<SmartList/>} />
     </Routes>
   )
 }

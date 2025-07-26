@@ -29,24 +29,32 @@ const Item = styled(Paper)(({ theme }) => ({
 
   return (
     <div>
- <Box sx={{ maxWidth: 1200, mx: 'auto', mt: 4 }}>
-      <Grid container spacing={3} justifyContent="center">
-        
-        
+ <Box sx={{ maxWidth: 1200 , mx: 'auto', mt: 4 }}>
+      <Grid container spacing={4} justifyContent="center">
+              
       {categories.map(category => {
         const productsInCategory = items.filter(item => item.category === category.name)
         if (productsInCategory.length === 0) return null
         return (
     
-     <Grid size={{ xs: 12, sm: 6, md: 4 }} key={category._id}>
+     <Grid size={{ xs: 12, sm: 6, md:4, lg:3 }} 
+     sx={{ minHeight: 'fit-content', alignItems: 'center' , minWidth: '250px'}}
+      key={category._id}>
    <Stack spacing={2}>
     <h3>{category.name}</h3>
     {productsInCategory.map(prod => (
-      <Item key={prod.id}>
-        <Box display="flex" alignItems="center" justifyContent="space-between">
+      <Item key={prod.id} >
+        <Box display="flex" alignItems="center" justifyContent="space-between" width="100%"
+         sx={{flexWrap:'nowrap'}}>
+          <Box sx={{flexShrink: 0 }}>
           <button onClick={() => dispatch(removeItem(prod.id))}>❌</button>
+          </Box>
+          <Box sx={{overflow: 'hidden'}}>
           <span style={{ marginInline: '8px' }}>{prod.product}</span>
+          </Box>
+          <Box sx={{flexShrink: 0 }}>
           <QuantityControl prodId={prod.id} quantity={prod.quantity} />
+          </Box>
         </Box>
       </Item>
      
