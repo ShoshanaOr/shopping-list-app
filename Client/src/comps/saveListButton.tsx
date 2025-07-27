@@ -19,8 +19,8 @@ export default function SaveListButton({user}: Props) {
   const items = useSelector((state: RootState) => state.shoppingList.items)
   const dispatch = useDispatch<AppDispatch>()
 
-  // const url = 'http://localhost:3000/shopping-lists'
-  const url = `${import.meta.env.VITE_API_URL}/shopping-lists`
+   const url = 'http://localhost:3000/shopping-lists'
+  //const url = `${import.meta.env.VITE_API_URL}/shopping-lists`
 
   const handleSave = async () => {
     console.log(items);

@@ -25,8 +25,8 @@ export default function MyLists() {
   useEffect(() => {
     const fetchLists = async () => {
       try {
-        // const url = `http://localhost:3000/shopping-lists/user/${user._id}`
-        const url = `${import.meta.env.VITE_API_URL}/shopping-lists/user/${user._id}`
+         const url = `http://localhost:3000/shopping-lists/user/${user._id}`
+        //const url = `${import.meta.env.VITE_API_URL}/shopping-lists/user/${user._id}`
         const res = await axios.get<ShoppingList[]>(url);
         setLists(res.data);
         // console.log(res.data);

@@ -7,8 +7,8 @@ import type { Item } from './myLists';
 
 export default function SmartList() {
 
-  const [prompt, setPrompt] = React.useState('')
-  const [newList, setNewList] = React.useState([])
+  // const [prompt, setPrompt] = React.useState('')
+  // const [newList, setNewList] = React.useState([])
   const [why, setWhy] = React.useState('')
   const [participants, setParticipants] = React.useState('')
   const [what, setWhat] = React.useState('')

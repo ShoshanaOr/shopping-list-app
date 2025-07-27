@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import type { AppDispatch } from '../store'
 import {increaseQuantity, decreaseQuantity} from '../features/shoppingList/shoppingListSlice'
-import { Box, Grid } from '@mui/material'
+import { Box } from '@mui/material'
 
 interface  QuantityControlProps {
   prodId: string

@@ -65,8 +65,8 @@ const [password, setPassword] = React.useState('');
 
 
   const handleRegister = async() =>{
-    const url = `${import.meta.env.VITE_API_URL}/user`
-    // const url = 'http://localhost:3000/user'
+    //const url = `${import.meta.env.VITE_API_URL}/user`
+     const url = 'http://localhost:3000/user'
     try{
       const res = await axios.post<UserState>(url,{
         fullName,
@@ -90,8 +90,8 @@ const [password, setPassword] = React.useState('');
   }
 
   const handleLogin = async () => {
-    // const url = 'http://localhost:3000/login'
-    const url = `${import.meta.env.VITE_API_URL}/login`
+     const url = 'http://localhost:3000/login'
+    //const url = `${import.meta.env.VITE_API_URL}/login`
     try{
       const res = await axios.post<UserState>(url, {
          email,

@@ -19,8 +19,8 @@ export default function AddItem({onAddItem}:AddItemProps) {
   const dispatch = useDispatch<AppDispatch>()
 
    useEffect(() => {
-    // const url = 'http://localhost:3000/categories'
-    const url = `${import.meta.env.VITE_API_URL}/categories`
+     const url = 'http://localhost:3000/categories'
+    //const url = `${import.meta.env.VITE_API_URL}/categories`
     axios.get<CategoryItem[]>(url)
       .then(res => {
         // console.log(res.data);       
